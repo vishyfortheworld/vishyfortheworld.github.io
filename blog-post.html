@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="blogTitle">Building Scalable React Applications with TypeScript - Vishrut Vatsa</title>
+    <meta name="description" content="Learn how to structure large-scale React applications using TypeScript, exploring best practices for component architecture, state management, and type safety.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="blog-post.css">
+    
+    <!-- Meta tags for SEO and social sharing -->
+    <meta property="og:title" content="Building Scalable React Applications with TypeScript">
+    <meta property="og:description" content="Learn how to structure large-scale React applications using TypeScript, exploring best practices for component architecture, state management, and type safety.">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3ctext y='.9em' font-size='80'%3e📝%3c/text%3e%3c/svg%3e">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="blog-post.css" as="style">
+    <link rel="preload" href="blog-post.js" as="script">
+</head>
+<body>
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress-container">
+        <div class="reading-progress-bar" id="readingProgressBar"></div>
+        <div class="reading-progress-text" id="readingProgressText">0%</div>
+    </div>
+
+    <!-- Floating Control Pill -->
+    <div class="floating-pill" id="floatingPill">
+        <button class="pill-control back-button" id="backButton" aria-label="Back to blog">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15,18 9,12 15,6"></polyline>
+            </svg>
+        </button>
+        
+        <div class="pill-divider"></div>
+        
+        <button class="pill-control" id="fontSizeToggle" aria-label="Adjust font size">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 7h16l-2 10H6L4 7z"/>
+                <path d="M4 7l2-5h12l2 5"/>
+                <line x1="7" y1="12" x2="17" y2="12"/>
+            </svg>
+        </button>
+        
+        <div class="pill-divider"></div>
+        
+        <button class="pill-control theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+            <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" fill="currentColor"/>
+            </svg>
+            <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="5" fill="currentColor"/>
+                <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2"/>
+                <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2"/>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2"/>
+                <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2"/>
+                <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2"/>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2"/>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2"/>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Blog Content -->
+    <main class="blog-main">
+        <div class="container">
+            <article class="blog-article">
+                <!-- Article Header -->
+                <header class="article-header">
+                    <div class="article-category" id="articleCategory">Development</div>
+                    <h1 class="article-title" id="articleTitle">Building Scalable React Applications with TypeScript</h1>
+                    <div class="article-meta">
+                        <div class="author-info">
+                            <div class="author-avatar">VV</div>
+                            <div class="author-details">
+                                <span class="author-name">Vishrut Vatsa</span>
+                                <time class="publish-date" id="publishDate">January 15, 2024</time>
+                            </div>
+                        </div>
+                        <div class="article-stats">
+                            <span class="read-time" id="readTime">8 min read</span>
+                            <span class="view-count" id="viewCount">1,247 views</span>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Article Content -->
+                <div class="article-content" id="articleContent">
+                    <div class="article-hero">
+                        <div class="hero-gradient"></div>
+                    </div>
+
+                    <div class="content-body">
+                        <p class="lead">In today's rapidly evolving web development landscape, building scalable React applications has become more crucial than ever. TypeScript adds a layer of type safety that can significantly improve your development experience and reduce bugs in production.</p>
+
+                        <h2>Why TypeScript with React?</h2>
+                        <p>TypeScript provides static type checking, which helps catch errors at compile time rather than runtime. When combined with React, it offers several advantages:</p>
+                        
+                        <ul>
+                            <li><strong>Enhanced Developer Experience:</strong> Better IntelliSense, autocomplete, and refactoring tools</li>
+                            <li><strong>Improved Code Quality:</strong> Catch type-related bugs before they reach production</li>
+                            <li><strong>Better Documentation:</strong> Types serve as living documentation for your components</li>
+                            <li><strong>Easier Refactoring:</strong> Safe and confident code changes across large codebases</li>
+                        </ul>
+
+                        <h2>Setting Up Your Project Structure</h2>
+                        <p>A well-organized project structure is the foundation of any scalable application. Here's a recommended folder structure for large React TypeScript projects:</p>
+
+                        <pre><code>src/
+├── components/
+│   ├── common/
+│   ├── ui/
+│   └── features/
+├── hooks/
+├── services/
+├── types/
+├── utils/
+├── store/
+└── pages/</code></pre>
+
+                        <h3>Component Architecture</h3>
+                        <p>When building scalable React applications, it's essential to follow consistent patterns for component creation. Here are some key principles:</p>
+
+                        <blockquote>
+                            <p>"The best architecture is the one that makes the simple things simple and the complex things possible."</p>
+                        </blockquote>
+
+                        <h4>1. Component Composition</h4>
+                        <p>Instead of creating monolithic components, break them down into smaller, composable pieces. This approach makes your components more reusable and easier to test.</p>
+
+                        <h4>2. Props Interface Design</h4>
+                        <p>Always define clear interfaces for your component props. This not only helps with type safety but also serves as documentation for other developers.</p>
+
+                        <pre><code>interface ButtonProps {
+  variant: 'primary' | 'secondary' | 'outline';
+  size: 'small' | 'medium' | 'large';
+  disabled?: boolean;
+  onClick: () => void;
+  children: React.ReactNode;
+}</code></pre>
+
+                        <h2>State Management Strategies</h2>
+                        <p>For large applications, choosing the right state management solution is crucial. Consider these options based on your application's complexity:</p>
+
+                        <h3>Local State vs Global State</h3>
+                        <p>Not all state needs to be global. Use local state for component-specific data and global state for data that needs to be shared across multiple components.</p>
+
+                        <h3>Context API for Moderate Complexity</h3>
+                        <p>React's Context API is perfect for managing state that doesn't change frequently and needs to be accessed by multiple components.</p>
+
+                        <h3>Redux Toolkit for Complex Applications</h3>
+                        <p>For applications with complex state interactions, Redux Toolkit provides a robust solution with excellent TypeScript support.</p>
+
+                        <h2>Performance Optimization Techniques</h2>
+                        <p>Performance should be a consideration from the beginning of your project. Here are some techniques to keep your React TypeScript application fast:</p>
+
+                        <ol>
+                            <li><strong>Code Splitting:</strong> Use React.lazy() and Suspense to split your code at the route level</li>
+                            <li><strong>Memoization:</strong> Utilize React.memo, useMemo, and useCallback appropriately</li>
+                            <li><strong>Bundle Analysis:</strong> Regularly analyze your bundle size using tools like webpack-bundle-analyzer</li>
+                            <li><strong>Image Optimization:</strong> Implement lazy loading and use modern image formats</li>
+                        </ol>
+
+                        <h2>Testing Strategies</h2>
+                        <p>A scalable application needs a robust testing strategy. TypeScript can help make your tests more reliable:</p>
+
+                        <ul>
+                            <li>Unit tests for individual components and functions</li>
+                            <li>Integration tests for component interactions</li>
+                            <li>End-to-end tests for critical user flows</li>
+                        </ul>
+
+                        <h2>Deployment and CI/CD</h2>
+                        <p>Setting up proper continuous integration and deployment pipelines ensures that your code quality remains high as your team grows:</p>
+
+                        <p>Consider implementing automated checks for:</p>
+                        <ul>
+                            <li>TypeScript compilation</li>
+                            <li>ESLint and Prettier formatting</li>
+                            <li>Unit test coverage</li>
+                            <li>Bundle size monitoring</li>
+                        </ul>
+
+                        <h2>Conclusion</h2>
+                        <p>Building scalable React applications with TypeScript requires careful planning and adherence to best practices. By following the strategies outlined in this article, you'll be well-equipped to create maintainable, performant applications that can grow with your team and user base.</p>
+
+                        <p>Remember that scalability isn't just about handling more users—it's about creating a codebase that can evolve and adapt to changing requirements while maintaining code quality and developer productivity.</p>
+                    </div>
+                </div>
+
+                <!-- Article Footer -->
+                <footer class="article-footer">
+                    <div class="article-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Web Development</span>
+                        <span class="tag">Frontend</span>
+                    </div>
+
+                    <div class="article-actions">
+                        <button class="like-button" id="likeButton" aria-label="Like this article">
+                            <svg class="heart-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                            <span class="like-text">Like</span>
+                        </button>
+                        <div class="like-count">
+                            <span id="likeCount">42</span> likes
+                        </div>
+                    </div>
+
+                    <div class="share-section">
+                        <h3>Share this article</h3>
+                        <div class="share-buttons">
+                            <a href="#" class="share-button twitter" aria-label="Share on Twitter">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="share-button linkedin" aria-label="Share on LinkedIn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+                                    <circle cx="4" cy="4" r="2"/>
+                                </svg>
+                            </a>
+                            <button class="share-button copy" id="copyLinkButton" aria-label="Copy link">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/>
+                                    <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </footer>
+            </article>
+
+            <!-- Related Articles -->
+            <section class="related-articles">
+                <h2>Related Articles</h2>
+                <div class="related-grid" id="relatedGrid">
+                    <!-- Related articles will be loaded here -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Reading Tools Sidebar -->
+    <aside class="reading-tools" id="readingTools">
+        <button class="tool-button" id="scrollTopButton" aria-label="Scroll to top">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="18,15 12,9 6,15"></polyline>
+            </svg>
+        </button>
+        <button class="tool-button" id="bookmarkButton" aria-label="Bookmark article">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/>
+            </svg>
+        </button>
+        <button class="tool-button" id="shareButton" aria-label="Share article">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="18" cy="5" r="3"/>
+                <circle cx="6" cy="12" r="3"/>
+                <circle cx="18" cy="19" r="3"/>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+            </svg>
+        </button>
+    </aside>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span class="toast-message" id="toastMessage"></span>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+    <script src="blog-post.js"></script>
+</body>
+</html>

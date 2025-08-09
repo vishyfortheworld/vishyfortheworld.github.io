@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GPT5 — Gradient Splash</title>
+  <style>
+    /* Reset */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
+
+    /* Fullscreen splash */
+    .splash{
+      height:100vh;
+      width:100vw;
+      display:grid;
+      place-items:center;
+      color:white;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+
+      /* animated gradient — tweak the colors below */
+      background: linear-gradient(120deg, #00c6ff 0%, #0072ff 35%, #9b6bff 65%, #ff4d6d 100%);
+      background-size: 200% 200%;
+      animation: gradientShift 8s ease infinite;
+    }
+
+    @keyframes gradientShift{
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+    }
+
+    /* subtle vignette for depth */
+    .splash::after{
+      content:"";
+      position:absolute;inset:0;
+      pointer-events:none;
+      background: radial-gradient(60% 60% at 50% 35%, rgba(255,255,255,0.02), transparent 30%),
+                  radial-gradient(120% 80% at 0% 100%, rgba(0,0,0,0.12), transparent 40%);
+    }
+
+    /* content */
+    .brand{
+      z-index:2;
+      transform:translateY(-6px);
+    }
+
+    .logo {
+      font-weight:700;
+      letter-spacing:0.6px;
+      font-size: clamp(28px, 6vw, 48px);
+      margin-bottom:8px;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    .tag{
+      opacity:0.95;font-size:14px;color:rgba(255,255,255,0.94)
+    }
+
+    /* subtle glass card behind logo */
+    .glass{
+      position:absolute;inset:unset;z-index:1;
+      width:min(680px,92%);
+      height:220px;
+      top:50%;left:50%;transform:translate(-50%,-50%);
+      border-radius:18px;
+      filter:blur(28px) saturate(.9);
+      background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      box-shadow: 0 10px 40px rgba(0,0,0,0.18);
+      pointer-events:none;
+      opacity:0.35;
+    }
+
+    /* loader */
+    .loader{
+      margin-top:18px;display:inline-block;width:88px;height:6px;border-radius:999px;overflow:hidden;background:rgba(255,255,255,0.12)
+    }
+    .loader > i{display:block;height:100%;width:30%;border-radius:999px;background:linear-gradient(90deg,rgba(255,255,255,0.95),rgba(255,255,255,0.6));
+      transform:translateX(-100%);
+      animation: slide 1.4s cubic-bezier(.2,.9,.2,1) infinite;
+    }
+    @keyframes slide{0%{transform:translateX(-120%)}50%{transform:translateX(20%)}100%{transform:translateX(120%)}}
+
+    /* accessibility: reduce motion */
+    @media (prefers-reduced-motion: reduce){
+      .splash{animation:none}
+      .loader > i{animation:none;transform:translateX(0)}
+    }
+
+    /* small demo body content to show transition */
+    main.app{display:none;padding:36px;font-size:18px}
+
+    /* simple transition when splash hides */
+    .splash.hide{opacity:0;pointer-events:none;transition:opacity .45s ease}
+    main.app.show{display:block}
+  </style>
+</head>
+<body>
+
+  <div class="splash" id="splash">
+    <div class="glass" aria-hidden></div>
+    <div class="brand" role="img" aria-label="GPT5 app logo">
+      <div class="logo">gpt5</div>
+      <div class="tag">thinking, fast. starting up…</div>
+      <div class="loader" aria-hidden><i></i></div>
+    </div>
+  </div>
+
+  <main class="app" id="app">
+    <h1>App content</h1>
+    <p>Replace this with your actual app. The splash above is a full-screen gradient splash — tweak colors in the CSS <code>background</code> on <code>.splash</code>.</p>
+  </main>
+
+  <script>
+    // Demo: auto-hide splash after a short delay (simulate startup). Remove or control from your app.
+    (function(){
+      const splash = document.getElementById('splash');
+      const app = document.getElementById('app');
+      const STARTUP_MS = 1400; // change to fit your real startup time
+
+      // if you control splash visibility from your framework, call hide() when ready instead
+      function hide(){
+        splash.classList.add('hide');
+        setTimeout(()=> app.classList.add('show'), 480);
+      }
+
+      // Simulate startup; in real app, call hide() when app finished loading/hydrating
+      window.addEventListener('load', ()=> setTimeout(hide, STARTUP_MS));
+
+      // Expose for debugging
+      window._splash = { hide };
+    })();
+  </script>
+</body>
+</html>

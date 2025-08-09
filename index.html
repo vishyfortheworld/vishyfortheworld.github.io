@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vishrut Vatsa - Blog</title>
+    <meta name="description" content="Sharing my latest thoughts, projects, and tutorials on technology, development, and anything else that inspires me.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Meta tags for SEO and social sharing -->
+    <meta property="og:title" content="Vishrut Vatsa - Blog">
+    <meta property="og:description" content="Sharing my latest thoughts, projects, and tutorials on technology, development, and anything else that inspires me.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Vishrut Vatsa - Blog">
+    <meta name="twitter:description" content="Sharing my latest thoughts, projects, and tutorials on technology, development, and anything else that inspires me.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3ctext y='.9em' font-size='80'%3e📝%3c/text%3e%3c/svg%3e">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <h2>Vishrut Vatsa</h2>
+            <p>Loading amazing content...</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <!-- Theme Toggle -->
+            <div class="theme-toggle-container">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" fill="currentColor"/>
+                    </svg>
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="5" fill="currentColor"/>
+                        <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2"/>
+                        <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2"/>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2"/>
+                        <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2"/>
+                        <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2"/>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="header-content">
+                <h1 class="name">Vishrut Vatsa</h1>
+                <p class="tagline">sharing my latest thoughts, projects, and tutorials on technology, development, and anything else that inspires me.</p>
+                
+                <!-- Social Links -->
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="GitHub">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+                            <circle cx="4" cy="4" r="2"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Search Bar -->
+            <div class="search-container">
+                <div class="search-box">
+                    <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="M21 21l-4.35-4.35"/>
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Search articles..." class="search-input">
+                </div>
+            </div>
+
+            <!-- Filter Tags -->
+            <div class="filter-tags">
+                <button class="tag active" data-category="all">All</button>
+                <button class="tag" data-category="technology">Technology</button>
+                <button class="tag" data-category="development">Development</button>
+                <button class="tag" data-category="tutorial">Tutorial</button>
+                <button class="tag" data-category="project">Project</button>
+            </div>
+
+            <!-- Blog Posts Grid -->
+            <div class="blog-grid" id="blogGrid">
+                <!-- Blog posts will be dynamically loaded here -->
+            </div>
+
+            <!-- Load More Button -->
+            <div class="load-more-container">
+                <button class="load-more-btn" id="loadMoreBtn">Load More Articles</button>
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <div class="empty-icon">🔍</div>
+                <h3>No articles found</h3>
+                <p>Try adjusting your search or filter criteria</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Vishrut Vatsa. All rights reserved.</p>
+                <p class="footer-tagline">Built with passion for sharing knowledge</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
