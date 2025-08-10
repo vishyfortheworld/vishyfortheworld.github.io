@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="blogTitle">Building Scalable React Applications with TypeScript - Vishrut Vatsa</title>
+    <meta name="description" content="Learn how to structure large-scale React applications using TypeScript, exploring best practices for component architecture, state management, and type safety.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="blog-post.css">
+    
+    <!-- Meta tags for SEO and social sharing -->
+    <meta property="og:title" content="Building Scalable React Applications with TypeScript">
+    <meta property="og:description" content="Learn how to structure large-scale React applications using TypeScript, exploring best practices for component architecture, state management, and type safety.">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3ctext y='.9em' font-size='80'%3e📝%3c/text%3e%3c/svg%3e">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="blog-post.css" as="style">
+    <link rel="preload" href="blog-post.js" as="script">
+</head>
+<body>
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress-container">
+        <div class="reading-progress-bar" id="readingProgressBar"></div>
+        <div class="reading-progress-text" id="readingProgressText">0%</div>
+    </div>
+
+    <!-- Blog Header Glass Pill -->
+    <header class="blog-header-pill" id="blogHeaderPill">
+        <div class="header-pill-content">
+            <!-- Back Button -->
+            <button class="pill-control back-button" id="backButton" aria-label="Back to blog">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15,18 9,12 15,6"></polyline>
+                </svg>
+            </button>
+            
+            <!-- Blog Title -->
+            <div class="blog-title">
+                <h1 class="pill-blog-title" id="pillBlogTitle">Loading...</h1>
+            </div>
+            
+            <!-- Controls -->
+            <div class="blog-controls">
+                <button class="pill-control" id="fontSizeToggle" aria-label="Adjust font size">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 7h16l-2 10H6L4 7z"/>
+                        <path d="M4 7l2-5h12l2 5"/>
+                        <line x1="7" y1="12" x2="17" y2="12"/>
+                    </svg>
+                </button>
+                
+                <div class="pill-divider"></div>
+                
+                <button class="pill-control theme-toggle" id="themeToggle" aria-label="Toggle theme mode">
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" fill="currentColor"/>
+                    </svg>
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="5" fill="currentColor"/>
+                        <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2"/>
+                        <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2"/>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2"/>
+                        <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2"/>
+                        <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2"/>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <svg class="liquid-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C8.5 2 6 4.5 6 8c0 2.5 1.5 4.5 3 6.5 1 1.5 2 3 2 4.5 0 1.5-1 2.5-2.5 2.5S6 20.5 6 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M18 8c0-3.5-2.5-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="15" cy="6" r="2" fill="currentColor" opacity="0.6"/>
+                        <circle cx="9" cy="15" r="1.5" fill="currentColor" opacity="0.4"/>
+                        <path d="M16 14c0 2-1 3.5-2 4.5-0.5 0.5-1 1-1 1.5 0 0.5 0.5 1 1 1s1-0.5 1-1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Blog Content -->
+    <main class="blog-main">
+        <div class="container">
+            <article class="blog-article">
+                <!-- Article Content -->
+                <div class="article-content" id="articleContent">
+                    <div class="content-body">
+                        <p class="lead">Before you step into my first blog, I want to pause for a moment, just to say thank you.
+                            Thank you for choosing to be here, for being a part of my journey in whatever way you are.
+                            I’ve tried to keep these blogs simple and close to the heart.
+                            This piece is nothing more than a gentle reflection on what I’ve come to understand during the past few, deeply transformative years of my mental growth.</p>
+
+                        
+                            <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+
+                                <span style="display:block; border-top: 1px solid #ccc; margin: 2rem 0;"></span>
+                                
+                                Dinner invitations still make me sweat. Not because I’m shy, I can talk, joke, laugh with the best of them, but because I never know where to eat or what to order, "What if I go wrong?". That’s a quiet panic that kicks in and it’s super embarrassing to admit, but I get stuck in the decision, picking the same things over and over again just to avoid that moment of uncertainty. My brain goes blank like a fucking bad UI. People laugh it off as indecision. For me it’s older than that.<br><br>
+                                
+                                <blockquote style="border-left: 4px solid #000; padding-left: 1rem; margin: 1.5rem 0; font-style: italic;">
+                                Some certainties are just bad guesses wearing confidence. <br> Like how I opted for a noodles joint over a dosa joint. Shittiest noodles I've ever had.
+                                </blockquote>
+                                
+                                So I start tracing back, and the earliest line in that habit was written in 2006. My parents scraped together <strong>six lakh rupees</strong> and bought a plot of land. Six lakh then felt like a fuckn promise. I remember the summer we drove to see it. We were returning from nani’s place (cause lower middle class vacations are always cheap and familiar) and Dad took a detour. The windows were down, dust on the road, and I distinctly remember <em>Dhadak Dhadak</em> came through the stereo. A line hit me then: <i>chaand se hokar sadak jaati hai, ussi pe aage jaake apna makaan hoga</i>. Dad didn’t make a speech, he rarely does, and he didn’t need to. His eyes said enough. That little patch of earth became our way to the moon.<br><br>
+                                
+                                <span style="display:block; border-top: 1px solid #ccc; margin: 2rem 0;"></span>
+                                
+                                Later, when I was older and the world got practical, that same land felt less like a poem and more like an obligation. I moved to Bangalore for college in 2017, graduated, and started living in what technically was a guard’s room under a staircase. The rooms were small enough that you didn’t need to walk to reach things, you could just turn. Anyway, so most of my salary went into a fund that always HAD to grow. The house was not an abstract dream anymore, it was the math at the back of EVERY decision. So naturally, food became an equation, not an experience. I learned the cheapest idli joint in a part of Bagalur that smelled of fucking tar and diesel. It packed tiffins for blue-collar workers , kudos to the owner for keeping those stainless steel containers though, were always lined in a neat, tired army. 20 rupees a plate, plain idli, no ghee, no ladle of sambhar and no fucking chutney (the white one, they had the red one). You could eat it quickly and forget it because forgetting was the entire point, if you lingered on flavor, you might start missing things you couldn’t buy. I ate those idlis until my mouth forgot what pleasure tasted like. I told myself, sometimes angrily, almost in quiet resignation <em>"we’ll never actually build the house"</em>. I was so damn sure of it.<br><br>
+                                
+                                <blockquote style="border-left: 4px solid #000; padding-left: 1rem; margin: 1.5rem 0; font-style: italic;">
+                                I was wrong
+                                </blockquote>
+                                
+                                College felt like another impossible thing later on. My hopes were super high when I joined college, almost as high as the expectations I had for myself, came crashing down after the first semester, why? Low attendance, low marks, low everything. Wasn't a shocker later on, I was always a bad student in the dramatic sense, the kind who would stare at pages until they blurred, have mixed up formulas that I used to be so sure of, have slept through alarms when I was sure ki "subah toh uth hi jaunga". Roomies used to comfort me before semesters, "You'll be fine, you'll get through it". Told people how I will never graduate. Told myself the same thing. Those nights of panic and the small, ugly compromises felt like proof I was right. Then on a random Wednesday, I gave my last semester exam, never held the actual degree but laughed at how wrong I had been. It wasn’t triumphal. It was relief.<br><br>
+                                
+                                <span style="display:block; border-top: 1px solid #ccc; margin: 2rem 0;"></span>
+                                
+                                I've believed some things would never happen, and then they did, in ways that felt accidental and tender and ridiculous. EVERY. SINGLE. TIME. Take Apple. I failed to get a WWDC scholarship for like 4 years in a row and thought that was the end of any Apple story for me. Turns out, it was brittle and weirdly elastic. One night, it was 2 a.m., I had <em>Starboy</em> on, and on impulse I messaged an Apple engineer. No plan. A message that was mostly nerves. She wrote back. Conversations turned into interviews. I became an intern. A lot of the people I know call it luck, but the truth is it was a tiny, messy combination of nerve, timing, and someone taking a minute to reply. Either way, I had been certain the door was closed. I was wrong, again.<br><br>
+                               
+                                <blockquote style="border-left: 4px solid #000; padding-left: 1rem; margin: 1.5rem 0; font-style: italic;">
+                                Certainty makes for a bad travel companion.
+                                </blockquote>
+                                
+                                So 2022, things looked like they were settling. I started with Boeing Research, steady work, steady pay. For the first time I could push more money towards that old promise. The house, the one from 2006, finally rose. Watched the builders lay the foundation, the smell of wet cement after a rain, tiles being chosen in a tiny tile shop in Varanasi, my dad hovered like a proud, careful man. Every inch of it felt surreal. Moving day, the sunlight slipping through a new window, the way the living room swallowed all of it, fucking bliss. I remember the first night I fell asleep there and woke up thinking, <em>We did it.</em> For sixteen years I’d been convinced it wouldn’t happen. I was wrong, again.<br><br>
+                                
+                                <span style="display:block; border-top: 1px solid #ccc; margin: 2rem 0;"></span>
+                                
+                                That new stability didn’t mean life simplified. I started loving GridXenergy, because design and product felt like the only honest luxuries I had left by the time. If food no longer satisfied, maybe design could? Little interfaces, the feel of an animation under a thumb, how quick will the swaps happen? what's the runtime in milliseconds?, were the only things I chased. We built, shipped, and things went forward. Early investments came in. Every one I even remotely liked, liked me back. It fed a dangerous idea, that my instincts were right, that my way was the way.<br><br>
+                                
+                                And then 2024 arrived with all of its bluntness. We shipped a product that read fine on slides but felt hollow, in a weird, very unexplainable way. Funding slowed, the spreadsheets turned red. We had to let people go. I moved into a smaller room because the company no longer had the runway to support where we had been working. Man did that period felt like a slow fall. I convinced myself, more than I should have, that hard work would fix everything. I could out-code the problem, out-hustle the market. That thinking got me into fragile places.<br><br>
+                                
+                                <blockquote style="border-left: 4px solid #000; padding-left: 1rem; margin: 1.5rem 0; font-style: italic;">
+                                I was wrong when I thought GridX would never struggle.
+                                </blockquote>
+                                
+                                So I moved to Delhi, locked myself in a room in Faridabad for two months. No AC. And this is Delhi summer, fucking 40°C, the heat clings to your skin. Power cuts that cut the night in jagged pieces, I’d fall asleep and wake in sweat, staring at a fan stuttering back to life like an apology. I still don't know how I worked until the keyboard used to feel like an island of sanity. Rewired flows, rewrote copy, listened to my co-founders that earlier I would have skimmed and dismissed. And then there was this night where I walked out onto the balcony and heard guards sharing hot rotis under a lone lamp. They laughed at something small. For a moment it somehow landed, "the work wasn’t about being right. It was about being useful to others"<br><br>
+                                
+                                <span style="display:block; border-top: 1px solid #ccc; margin: 2rem 0;"></span>
+                                
+                                What this really meant was that being certain had blinded me. I had been certain that I knew the right product direction, the right hires, the right timing. I was so fucking wrong. The fixes that actually worked didn’t come from brute force. They came from other people’s small, stubborn corrections, a teammate who insisted on a different microcopy, a user who pointed out a flow that felt off. I stopped treating feedback like friction and started seeing it as a map.<br><br>
+                                
+                                And slowly, the small joys came back. One evening, after months of being on edge, I ordered a dosa. Firstly because I missed Bangalore and second because I just wanted to eat something that was not a meal. Not curated, not at all Instagram ready. Just dosa. Bit into the chutney and the mustard seeds popped, fucking bliss, again. I laughed out loud at myself, surprised by how alive that single bite felt. I’d convinced myself that my tastebuds were gone for good. I was wrong, again, and that wrongness was a mercy.<br><br>
+                                
+                                <span style="display:block; border-top: 1px solid #ccc; margin: 2rem 0;"></span>
+                                
+                                So here’s the thread through all of it, I was wrong when I thought the house would never be built. I was wrong when I thought I’d never graduate. I was wrong when I decided Apple was not for me. I was wrong when I believed funding would never run out. In every case, the certainty I clung to was narrower than reality. Each time I was wrong, the world nudged me closer to what mattered, which is honestly just the usefulness of being adaptive.<br>
+                                That’s the real lesson for me. Opinions are tools, not verdicts. Advice is a gift, not law. I still get impatient. I still want to be right. But I carry a quieter muscle now, a muscle that can admit my mistakes, hand off authority when someone else has the better angle, to let life correct me without feeling diminished.
+
+                                My road to the moon is winding, and I try to get there by the luck of good dents and course corrections. And at the end of all of it, the claim is small and obvious and so goddamn humbling; <br><br>
+
+                                <strong>I Can Be Wrong.</strong>
+                                
+                                </p>
+                        
+                    </div>
+                </div>
+
+
+            </article>
+
+
+        </div>
+    </main>
+
+    <!-- Action Pill removed as requested -->
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p class="footer-tagline">Designed and Developed by Vishrut Vatsa, for the love of sharing</p>
+            <p class="footer-production">A Vatsa Production</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span class="toast-message" id="toastMessage"></span>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+    <script src="blog-post.js"></script>
+</body>
+</html>
