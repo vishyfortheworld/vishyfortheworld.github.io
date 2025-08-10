@@ -1,1 +1,0 @@
-# Vishrut Vatsa's Blog
