@@ -31,14 +31,26 @@ class BlogPostManager {
             '1': {
                 id: 1,
                 title: "I can be wrong",
-                excerpt: "Learn how to structure large-scale React applications using TypeScript, exploring best practices for component architecture, state management, and type safety.",
-                content: "Full article content would go here...",
+                excerpt: "a gentle reflection on what I’ve come to understand during the past few, deeply transformative years of my mental growth",
+                content: "I can be wrong",
                 category: "development",
                 date: "2024-01-15",
                 readTime: "8 min read",
                 views: 1247,
                 likes: 42,
                 tags: ["React", "TypeScript", "JavaScript", "Web Development", "Frontend"]
+            },
+            '11': {
+                id: 11,
+                title: "Some things don't run on code",
+                excerpt: "Some things I've built don’t run on code. A reflection on rhythm, purpose, people, and the energy in the room.",
+                content: "Some things I've built don’t run on code.",
+                category: "reflection",
+                date: "2025-10-12",
+                readTime: "3 min read",
+                views: 0,
+                likes: 17,
+                tags: ["life", "work", "reflection"]
             }
             // aage aur blogs add karna hai
         };
@@ -71,6 +83,12 @@ class BlogPostManager {
             if (pillTitle) {
                 pillTitle.textContent = this.currentBlog.title;
                 console.log('Updated pill title to:', this.currentBlog.title);
+                // Nudge the title slightly to the right for blog id 11 to align with content
+                if (this.currentBlog.id === 11) {
+                    pillTitle.style.marginLeft = '12px';
+                } else {
+                    pillTitle.style.marginLeft = '';
+                }
             } else {
                 console.warn('Pill title element not found, retrying...');
                 setTimeout(updatePillTitle, 100);
@@ -83,6 +101,86 @@ class BlogPostManager {
         if (likeCountElement) {
             likeCountElement.textContent = this.likeCount;
         }
+
+        // Render the actual article content for specific blogs
+        this.renderArticleContent();
+    }
+
+    renderArticleContent() {
+        const contentBody = document.querySelector('#articleContent .content-body');
+        if (!contentBody) return;
+        
+        // Keep existing static content for the first blog
+        if (this.currentBlog.id !== 11) return;
+        
+        // Richly formatted content mirroring the first blog's structure (full text)
+        contentBody.innerHTML = `
+            <p class="lead">Some things I've built don’t run on code.</p>
+            
+            <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                I catch myself staring at the terminal like it’s a window. <br>
+                 Logs rolling down, cursor blinking, everything alive but quiet. It’s weirdly peaceful. <br>
+                  But lately I’ve been thinking about how easy it is to start confusing that peace with purpose.
+            </p>
+
+            <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                I love what I build. App, backend, paddock, whatever, obviously it’s all part of me. But it’s not me. <br> Shru calls herself a mirror when it comes to her being a certain way with someone, maybe my work is my mirror. It reflects how I think, how I care, how I am desperately trying to make sense of the world. <br>
+                <br>
+                But when I close the laptop, I need to still recognize myself without it.
+                <br>
+                 <br>
+            </p>
+
+            <span style="display:block; border-top: 1px solid #ccc; margin: 2rem auto; max-width: 700px;"></span>
+
+            <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                I, at times, think that life works in reverse. I also, at times, think back to the rooms that taught me things. My Bangalore room, learned that good decisions in life stack up. The Saket room, where the first version of the app that broke every other day still somehow ran. The late nights that ended with someone quietly saying “bhai, it works”. <br>
+                 Those moments weren’t about tech or development or design. <br> They were about people trying to make something honest.
+                 <br>
+                 <br>
+            </p>
+
+            <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                I get so much joy in doing that. When everyone’s too tired to speak but too damn close to quit. When a small fix makes everyone breathe again. That’s what I’ll remember.
+            </p>
+
+            <blockquote style="border-left: 4px solid #000; padding-left: 1rem; margin: 1.5rem auto; max-width: 700px; font-style: italic;">
+                Not the code, never the feature, but the energy in the room.
+            </blockquote>
+
+            <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                Sometimes I forget that I have a beautiful family and friends who make me feel like I'm allowed to have a life outside all this. <br>
+                Kuttu wakes me up before my alarms. Tushu listens to me talk about boring tech like it’s art. My mom reminds me to eat, sleep, slow down. Raman reminding me to just breathe.
+                <br>
+                
+                They’re all part of this too. Maybe more than I realise.
+                <br>
+                <br>
+            </p>
+
+            <span style="display:block; border-top: 1px solid #ccc; margin: 2rem auto; max-width: 700px;"></span>
+
+            <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                I used to think the goal was perfection.<br>
+                 Now I just want rhythm. <br>
+                  To show up, to build carefully, to not rush through moments that deserve attention. <br>
+                  To be proud of the small things that work quietly and well.
+
+                  <br>
+                  <br>
+            </p>
+
+            <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                I don’t think my work defines me anymore. It is more like documenting where I was in time, what I cared about and who stood with me while I was closing in the gap between what I wanted and what I could actually build.
+                
+                <br>
+                <br>
+            </p>
+
+            <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                Anyway, that’s enough.
+            </p>
+        `;
     }
     
     setupEventListeners() {

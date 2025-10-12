@@ -23,6 +23,17 @@ class BlogManager {
     loadSampleData() {
         this.blogs = [
             {
+                id: 11,
+                title: "Some things I've built don't run on code",
+                excerpt: "a reflection on rhythm, purpose, people, and the energy in the room.",
+                content: "Full article content would go here...",
+                category: "reflection",
+                date: "2025-10-12",
+                readTime: "3 min read",
+                tags: ["life", "work", "reflection"],
+                featured: true
+            },
+            {
                 id: 1,
                 title: "I can be wrong",
                 excerpt: "a gentle reflection on what I’ve come to understand during the past few, deeply transformative years of my mental growth",
@@ -32,102 +43,14 @@ class BlogManager {
                 readTime: "5 min read",
                 tags: ["mental health", "growth", "reflection"],
                 featured: true
-            },
-            {
-                id: 2,
-                title: "The Future of Web Development: What to Expect in 2024",
-                excerpt: "Exploring emerging trends in web development, from AI-powered tools to new frameworks that are reshaping how we build for the web.",
-                content: "Full article content would go here...",
-                category: "technology",
-                date: "2024-01-12",
-                readTime: "6 min read",
-                tags: ["web development", "trends", "ai"],
-                featured: false
-            },
-            {
-                id: 3,
-                title: "Complete Guide to Modern CSS Grid and Flexbox",
-                excerpt: "Master CSS Grid and Flexbox with practical examples and real-world use cases. Learn when to use each layout method for maximum effectiveness.",
-                content: "Full article content would go here...",
-                category: "tutorial",
-                date: "2024-01-10",
-                readTime: "12 min read",
-                tags: ["css", "layout", "frontend"],
-                featured: false
-            },
-            {
-                id: 4,
-                title: "Building a Real-time Chat Application with WebSockets",
-                excerpt: "Step-by-step tutorial on creating a real-time chat application using WebSockets, Node.js, and modern JavaScript frameworks.",
-                content: "Full article content would go here...",
-                category: "project",
-                date: "2024-01-08",
-                readTime: "15 min read",
-                tags: ["websockets", "nodejs", "realtime"],
-                featured: true
-            },
-            {
-                id: 5,
-                title: "Optimizing Performance in Modern JavaScript Applications",
-                excerpt: "Discover advanced techniques for optimizing JavaScript performance, including code splitting, lazy loading, and memory management strategies.",
-                content: "Full article content would go here...",
-                category: "development",
-                date: "2024-01-05",
-                readTime: "10 min read",
-                tags: ["performance", "javascript", "optimization"],
-                featured: false
-            },
-            {
-                id: 6,
-                title: "Introduction to Machine Learning with Python",
-                excerpt: "Get started with machine learning using Python. Learn fundamental concepts and build your first ML model with practical examples.",
-                content: "Full article content would go here...",
-                category: "tutorial",
-                date: "2024-01-03",
-                readTime: "14 min read",
-                tags: ["python", "machine learning", "ai"],
-                featured: false
-            },
-            {
-                id: 7,
-                title: "Serverless Architecture: Pros, Cons, and Best Practices",
-                excerpt: "Deep dive into serverless computing, exploring when to use serverless architectures and how to implement them effectively.",
-                content: "Full article content would go here...",
-                category: "technology",
-                date: "2024-01-01",
-                readTime: "9 min read",
-                tags: ["serverless", "cloud", "architecture"],
-                featured: false
-            },
-            {
-                id: 8,
-                title: "Creating Beautiful Data Visualizations with D3.js",
-                excerpt: "Learn to create stunning, interactive data visualizations using D3.js. From basic charts to complex interactive dashboards.",
-                content: "Full article content would go here...",
-                category: "project",
-                date: "2023-12-28",
-                readTime: "11 min read",
-                tags: ["d3js", "visualization", "javascript"],
-                featured: true
-            },
-            {
-                id: 9,
-                title: "Docker Containerization: From Basics to Production",
-                excerpt: "Comprehensive guide to Docker containerization, covering everything from basic concepts to production deployment strategies.",
-                content: "Full article content would go here...",
-                category: "tutorial",
-                date: "2023-12-25",
-                readTime: "13 min read",
-                tags: ["docker", "devops", "containerization"],
-                featured: false
             }
         ];
         
         // Sort blogs by date (newest first)
         this.blogs.sort((a, b) => new Date(b.date) - new Date(a.date));
-        // Show only the first article on the homepage for now
-        this.filteredBlogs = this.blogs.length ? [this.blogs[0]] : [];
-        this.postsPerPage = 1;
+        // Show the first two articles on the homepage (keep first blog visible)
+        this.filteredBlogs = this.blogs.slice(0, 2);
+        this.postsPerPage = 2;
     }
     
     // Setup event listeners
@@ -185,11 +108,11 @@ class BlogManager {
             return matchesSearch;
         });
         
-        // Always keep only the first (newest) article visible
+        // Keep only the first two (newest) articles visible on homepage
         if (this.filteredBlogs.length > 0) {
             // Ensure sorted order by date
             this.filteredBlogs.sort((a, b) => new Date(b.date) - new Date(a.date));
-            this.filteredBlogs = [this.filteredBlogs[0]];
+            this.filteredBlogs = this.filteredBlogs.slice(0, 2);
         }
 
         this.currentPage = 0;
@@ -262,7 +185,11 @@ class BlogManager {
             'linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)'
         ];
         
-        const gradient = gradients[blog.id % gradients.length];
+        let gradient = gradients[blog.id % gradients.length];
+        // Force turquoise for the second blog card
+        if (String(blog.id) === '11') {
+            gradient = 'linear-gradient(135deg, #40E0D0 0%, #2bc0a4 100%)';
+        }
         
         card.innerHTML = `
             <div class="blog-card-image" style="background: ${gradient}">
