@@ -51,6 +51,18 @@ class BlogPostManager {
                 views: 0,
                 likes: 17,
                 tags: ["life", "work", "reflection"]
+            },
+            '12': {
+                id: 12,
+                title: "Connections can drop, user trust shouldn't",
+                excerpt: "how do you exactly make a reliable billing system for the real world",
+                content: "Connections can drop, user trust shouldn't",
+                category: "development",
+                date: "2025-10-27",
+                readTime: "10 min read",
+                views: 0,
+                likes: 0,
+                tags: ["billing", "reliability", "systems"]
             }
             // aage aur blogs add karna hai
         };
@@ -110,77 +122,196 @@ class BlogPostManager {
         const contentBody = document.querySelector('#articleContent .content-body');
         if (!contentBody) return;
         
-        // Keep existing static content for the first blog
-        if (this.currentBlog.id !== 11) return;
-        
-        // Richly formatted content mirroring the first blog's structure (full text)
-        contentBody.innerHTML = `
-            <p class="lead">Some things I've built don’t run on code.</p>
-            
-            <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
-                I catch myself staring at the terminal like it’s a window. <br>
-                 Logs rolling down, cursor blinking, everything alive but quiet. It’s weirdly peaceful. <br>
-                  But lately I’ve been thinking about how easy it is to start confusing that peace with purpose.
-            </p>
-
-            <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
-                I love what I build. App, backend, paddock, whatever, obviously it’s all part of me. But it’s not me. <br> Shru calls herself a mirror when it comes to her being a certain way with someone, maybe my work is my mirror. It reflects how I think, how I care, how I am desperately trying to make sense of the world. <br>
-                <br>
-                But when I close the laptop, I need to still recognize myself without it.
-                <br>
-                 <br>
-            </p>
-
-            <span style="display:block; border-top: 1px solid #ccc; margin: 2rem auto; max-width: 700px;"></span>
-
-            <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
-                I, at times, think that life works in reverse. I also, at times, think back to the rooms that taught me things. My Bangalore room, learned that good decisions in life stack up. The Saket room, where the first version of the app that broke every other day still somehow ran. The late nights that ended with someone quietly saying “bhai, it works”. <br>
-                 Those moments weren’t about tech or development or design. <br> They were about people trying to make something honest.
-                 <br>
-                 <br>
-            </p>
-
-            <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
-                I get so much joy in doing that. When everyone’s too tired to speak but too damn close to quit. When a small fix makes everyone breathe again. That’s what I’ll remember.
-            </p>
-
-            <blockquote style="border-left: 4px solid #000; padding-left: 1rem; margin: 1.5rem auto; max-width: 700px; font-style: italic;">
-                Not the code, never the feature, but the energy in the room.
-            </blockquote>
-
-            <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
-                Sometimes I forget that I have a beautiful family and friends who make me feel like I'm allowed to have a life outside all this. <br>
-                Kuttu wakes me up before my alarms. Tushu listens to me talk about boring tech like it’s art. My mom reminds me to eat, sleep, slow down. Raman reminding me to just breathe.
-                <br>
+        if (this.currentBlog.id === 11) {
+            // Second blog content
+            contentBody.innerHTML = `
+                <p class="lead">Some things I've built don’t run on code.</p>
                 
-                They’re all part of this too. Maybe more than I realise.
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    I catch myself staring at the terminal like it’s a window. <br>
+                     Logs rolling down, cursor blinking, everything alive but quiet. It’s weirdly peaceful. <br>
+                      But lately I’ve been thinking about how easy it is to start confusing that peace with purpose.
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    I love what I build. App, backend, paddock, whatever, obviously it’s all part of me. But it’s not me. <br> Shru calls herself a mirror when it comes to her being a certain way with someone, maybe my work is my mirror. It reflects how I think, how I care, how I am desperately trying to make sense of the world. <br>
+                    <br>
+                    But when I close the laptop, I need to still recognize myself without it.
+                    <br>
+                     <br>
+                </p>
+
+                <span style="display:block; border-top: 1px solid #ccc; margin: 2rem auto; max-width: 700px;"></span>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    I, at times, think that life works in reverse. I also, at times, think back to the rooms that taught me things. My Bangalore room, learned that good decisions in life stack up. The Saket room, where the first version of the app that broke every other day still somehow ran. The late nights that ended with someone quietly saying “bhai, it works”. <br>
+                     Those moments weren’t about tech or development or design. <br> They were about people trying to make something honest.
+                     <br>
+                     <br>
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    I get so much joy in doing that. When everyone’s too tired to speak but too damn close to quit. When a small fix makes everyone breathe again. That’s what I’ll remember.
+                </p>
+
+                <blockquote style="border-left: 4px solid #000; padding-left: 1rem; margin: 1.5rem auto; max-width: 700px; font-style: italic;">
+                    Not the code, never the feature, but the energy in the room.
+                </blockquote>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    Sometimes I forget that I have a beautiful family and friends who make me feel like I'm allowed to have a life outside all this. <br>
+                    Kuttu wakes me up before my alarms. Tushu listens to me talk about boring tech like it’s art. My mom reminds me to eat, sleep, slow down. Raman reminding me to just breathe.
+                    <br>
+                    
+                    They’re all part of this too. Maybe more than I realise.
+                    <br>
+                    <br>
+                </p>
+
+                <span style="display:block; border-top: 1px solid #ccc; margin: 2rem auto; max-width: 700px;"></span>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    I used to think the goal was perfection.<br>
+                     Now I just want rhythm. <br>
+                      To show up, to build carefully, to not rush through moments that deserve attention. <br>
+                      To be proud of the small things that work quietly and well.
+
+                      <br>
+                      <br>
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    I don’t think my work defines me anymore. It is more like documenting where I was in time, what I cared about and who stood with me while I was closing in the gap between what I wanted and what I could actually build.
+                    
+                    <br>
+                    <br>
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    Anyway, that’s enough.
+                </p>
+            `;
+            return;
+        }
+
+        if (this.currentBlog.id === 12) {
+            // Third blog content
+            contentBody.innerHTML = `
+
+                <p style=\"line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;\">
+                    When Shivanshu first asked me to join GridX, I was already deep in the day-to-day chaos of building things. But when it came time to make the final call, I remember thinking, “It’s all out there already, what could possibly go wrong?”<br>
+                    Turns out, quite a lot.
+                </p>
+
+                <p style=\"line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;\">
+                    From day 1, we’ve always believed that technology should work around your life, not the other way around, but it’s easy to say things should “just work.” It’s a whole different game to actually make that happen.
+                </p>
+
+                <p style=\"line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;\">
+                    Most of the toughest engineering problems start with a deceptively simple question.
+                </p>
+
+                <p style=\"line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;\">
+                    For me, it was:<br>
+                    <strong>How do we bill accurately and live, even when our energy device is offline?</strong>
+                </p>
+
+                <p style=\"line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;\">Let’s break that down.</p>
+
+                <span style=\"display:block; border-top: 1px solid #ccc; margin: 2rem auto; max-width: 700px;\"></span>
+
+                <h3 style=\"max-width: 700px; margin: 0 auto 1rem auto;\">The Problem No One Talks About</h3>
+                <p style=\"line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;\">
+                    Our PowerPods often operate in places where connectivity is flaky; garages, basements, rural homes, or even off-grid setups. In these scenarios, relying on constant internet access to sync usage data and process billing is unrealistic. Yet, for users, like everything else, the experience needs to feel instant. They should see real-time billing updates, accurate to the second, with no lag or “last synced” anxiety.
+                </p>
+                <p style=\"line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;\">
+                    So when the question hit me, I did what anyone would do, looked around to see how others were solving it. Maybe there was something to learn, some clever workaround to borrow? Turns out… no. No one was doing this.
+                </p>
+                <p style=\"line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;\">
+                    A true pay-as-you-go model in the B2C mobility space? We weren’t just the first ones trying, we were the ONLY ones.
+                </p>
+                <p style=\"line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;\">
+                    Traditional systems fail here because they’re central-first. They assume every transaction, event, or usage delta must be validated by a remote server in real time. But in the real world, devices disconnect, phones go out of range, and networks blink.
+                    <br>
+                    We had to rethink the entire model.
+                </p>
+
+                <span style=\"display:block; border-top: 1px solid #ccc; margin: 2rem auto; max-width: 700px;\"></span>
+
+                <h3 style=\"max-width: 700px; margin: 0 auto 1rem auto;\">Core Core Idea? What if Billing was a Distributed Ledger?</h3>
+                <p style=\"line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;\">
+                    Instead of treating billing as a backend event, we made it a local event with synchronized validation. Each PowerPod when connected to the app runs a lightweight billing engine that continuously tracks power draw, pricing, and session logic locally. It packages this as a self-contained “billing delta”, much like a compact encrypted payload representing all the usage and cost calculations since the last sync.
+                </p>
+                <p style=\"line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;\">
+                    The idea borrows from distributed systems thinking: local state management with eventual consistency. The device doesn’t need to be online to function correctly, it just needs to reconcile states when it can.
+                </p>
+
+                <span style=\"display:block; border-top: 1px solid #ccc; margin: 2rem auto; max-width: 700px;\"></span>
+
+                <h3 style=\"max-width: 700px; margin: 0 auto 1rem auto;\">How to make it work when the internet drops?</h3>
+                <p style=\"line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;\">
+                    Here’s where it gets clever. When the PowerPod goes offline, it doesn’t stop billing. It starts a local ledger that’s time-stamped and cryptographically signed using rolling keys. This ensures that when it finally reconnects, even for a second, the server can verify authenticity and merge states seamlessly.
+                </p>
+                <p style=\"line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;\">
+                    Now, what if it doesn’t reconnect for hours? That’s where Bluetooth comes in.
+                </p>
+                <p style=\"line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;\">
+                    Each PowerPod uses Bluetooth LE to connect to the user’s phone, quietly and automatically, the moment they come within range. The phone acts as a temporary network proxy, forwarding the billing delta to our servers in just a few kilobytes of data. This happens in the background, without the user needing to open the app or re-pair anything. EVER.
+                </p>
+                <p style=\"line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;\">
+                    To the user, billing looks “live.” But under the hood, we’re essentially doing decentralized data sync with adaptive network routing, using the most available link at any given time.
+                </p>
+
+                <span style=\"display:block; border-top: 1px solid #ccc; margin: 2rem auto; max-width: 700px;\"></span>
+
+                <h3 style=\"max-width: 700px; margin: 0 auto 1rem auto;\">The Magic Behind “Live” Billing</h3>
+                <p style=\"line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;\">
+                    Now you might wonder  "how does the app show live billing if the server hasn’t received the latest data yet?"
+                </p>
+                <p style=\"line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;\">
+                    Simple. We run a shadow billing model on the app itself. The PowerPod streams real-time usage metrics locally via Bluetooth, and the app’s local billing module mirrors the same pricing logic as the device. This creates a perfectly synchronized “twin” of the device’s billing state.
+                </p>
+                <p style=\"line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;\">
+                    When the connection is restored, via phone or Wi-Fi or PowerPod getting back in the network zone, both states merge, and any micro-differences are resolved deterministically. No double-charging, no drift, no race conditions.
+                </p>
+                <p style=\"line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;\">
+                    We call this mechanism Adaptive Billing Sync (ABS).
+                </p>
+
+                <span style=\"display:block; border-top: 1px solid #ccc; margin: 2rem auto; max-width: 700px;\"></span>
+
+                <h3 style=\"max-width: 700px; margin: 0 auto 1rem auto;\">Why It Matters?</h3>
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    What this really means for anyone is that the PowerPod doesn’t panic when the internet drops. It keeps running, billing stays accurate, and the app still feels instant, like nothing ever went offline. The data stays secure and tamper-proof the whole time, and when the device finally reconnects, it syncs everything in seconds using almost no bandwidth. No one has to EVER think about it, or wait for anything to “refresh” It just works, quietly, in the background.
+                </p>
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    From an engineering standpoint, it’s a blend of distributed computing, local-first design, and adaptive networking. From a user standpoint, it’s just…billing that works.
+                </p>
+
+                <span style=\"display:block; border-top: 1px solid #ccc; margin: 2rem auto; max-width: 700px;\"></span>
+
+                <h3 style=\"max-width: 700px; margin: 0 auto 1rem auto;\">Looking Ahead</h3>
+                <p style=\"line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;\">
+                    This one didn’t come easy. It took us over a year of trial and error, testing the weirdest edge cases, watching devices go out of sync, patching idk how many billing conflicts at 2 a.m., and slowly tuning how billing states talk to each other under brutal latency.
+                </p>
+                <p style=\"line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;\">
+                    But when it finally clicked, it felt right. We’d built something we could trust, a billing system that’s just as dependable as the batteries we make.
+                </p>
+                <p style=\"line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;\">
                 <br>
-                <br>
-            </p>
+                    I’ve finally stopped building for the perfect world. I try to build for the real one, where signals drop, power flickers, and things still have to just work.
+                    <br>
+                    Connections can drop, user trust shouldn't.
+                    <br>
+                    <br>
+                    Alright, time to get some sleep.
+                </p>
+            `;
+            return;
+        }
 
-            <span style="display:block; border-top: 1px solid #ccc; margin: 2rem auto; max-width: 700px;"></span>
-
-            <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
-                I used to think the goal was perfection.<br>
-                 Now I just want rhythm. <br>
-                  To show up, to build carefully, to not rush through moments that deserve attention. <br>
-                  To be proud of the small things that work quietly and well.
-
-                  <br>
-                  <br>
-            </p>
-
-            <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
-                I don’t think my work defines me anymore. It is more like documenting where I was in time, what I cared about and who stood with me while I was closing in the gap between what I wanted and what I could actually build.
-                
-                <br>
-                <br>
-            </p>
-
-            <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
-                Anyway, that’s enough.
-            </p>
-        `;
+        // Fallback: keep the original static content for other posts
+        return;
     }
     
     setupEventListeners() {

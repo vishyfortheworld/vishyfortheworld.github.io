@@ -34,6 +34,17 @@ class BlogManager {
                 featured: true
             },
             {
+                id: 12,
+                title: "Connections can drop, user trust shouldn't",
+                excerpt: "how do you exactly make a reliable billing system for the real world",
+                content: "Full article content would go here...",
+                category: "development",
+                date: "2025-10-27",
+                readTime: "10 min read",
+                tags: ["billing", "reliability", "systems"],
+                featured: true
+            },
+            {
                 id: 1,
                 title: "I can be wrong",
                 excerpt: "a gentle reflection on what I’ve come to understand during the past few, deeply transformative years of my mental growth",
@@ -48,9 +59,9 @@ class BlogManager {
         
         // Sort blogs by date (newest first)
         this.blogs.sort((a, b) => new Date(b.date) - new Date(a.date));
-        // Show the first two articles on the homepage (keep first blog visible)
-        this.filteredBlogs = this.blogs.slice(0, 2);
-        this.postsPerPage = 2;
+        // Show the first three articles on the homepage (keep earlier blogs visible)
+        this.filteredBlogs = this.blogs.slice(0, 3);
+        this.postsPerPage = 3;
     }
     
     // Setup event listeners
@@ -108,11 +119,11 @@ class BlogManager {
             return matchesSearch;
         });
         
-        // Keep only the first two (newest) articles visible on homepage
+        // Keep only the first three (newest) articles visible on homepage
         if (this.filteredBlogs.length > 0) {
             // Ensure sorted order by date
             this.filteredBlogs.sort((a, b) => new Date(b.date) - new Date(a.date));
-            this.filteredBlogs = this.filteredBlogs.slice(0, 2);
+            this.filteredBlogs = this.filteredBlogs.slice(0, 3);
         }
 
         this.currentPage = 0;
@@ -189,6 +200,10 @@ class BlogManager {
         // Force turquoise for the second blog card
         if (String(blog.id) === '11') {
             gradient = 'linear-gradient(135deg, #40E0D0 0%, #2bc0a4 100%)';
+        }
+        // Distinct deep blue gradient for reliability/billing theme
+        if (String(blog.id) === '12') {
+            gradient = 'linear-gradient(135deg, #0f172a 0%, #2563eb 100%)';
         }
         
         card.innerHTML = `
