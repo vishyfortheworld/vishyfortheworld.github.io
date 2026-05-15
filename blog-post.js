@@ -63,6 +63,18 @@ class BlogPostManager {
                 views: 0,
                 likes: 0,
                 tags: ["billing", "reliability", "systems"]
+            },
+            '13': {
+                id: 13,
+                title: "What is the future of design?",
+                excerpt: "40 years of interface evolution led us back to a blinking cursor. Welcome to the end of the interface era.",
+                content: "What is the future of design?",
+                category: "design",
+                date: "2026-05-15",
+                readTime: "15 min read",
+                views: 0,
+                likes: 0,
+                tags: ["design", "AI", "interfaces", "future"]
             }
             // aage aur blogs add karna hai
         };
@@ -310,8 +322,208 @@ class BlogPostManager {
             return;
         }
 
+        if (this.currentBlog.id === 13) {
+            // Fourth blog content - What is the future of design?
+            contentBody.innerHTML = `
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    I know, this is late. 4 months late. More of a seasonal migration. But like every desi founder with a neglected blog, I could blame the company and the "busy schedule." And to be super honest, that wouldn't even be an excuse. The last few months disappeared into building what is turning into one hell of a company. And somewhere along the way, writing quietly fell off the edge.
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    But boy am I sooo back, staring at this blank, accusatory cursor, waiting for something honest to form. This one begins exactly the same way. The difference is that this time, the cursor itself is the idea. Tiny metronome, measuring time I kept promising I'd return.
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    So this is the first post of 2026.
+                </p>
+
+                <span style="display:block; border-top: 1px solid #ccc; margin: 2rem auto; max-width: 700px;"></span>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    Alright. This is MS-DOS, 1981. And this is ChatGPT, 2026. Separating them - 40 years of evolution and trillions of dollars of investment. We invented windows, icons, the (accusatory) cursor. Then we taught phones to feel our fingers. Dreamed of holograms. But still, the future is suspiciously like the fucking past.
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    We are once again sitting in front of an empty input field and a blinking cursor.
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    But what if I told you that the last forty years weren't progress, but a forced compromise? What if buttons and icons were just a temporary crutch that we are finally able to discard? But now, maybe we can't, because we've gotten used to them?
+                </p>
+
+                <blockquote style="border-left: 4px solid #000; padding-left: 1rem; margin: 1.5rem auto; max-width: 700px; font-style: italic;">
+                    WELCOME TO THE END OF THE INTERFACE ERA.
+                </blockquote>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    To understand why we've returned to this blinking cursor, you need to see the full map. Before AI, there were 3 key turning points. Three technologies that we thought were evolution, but were actually training wheels.
+                </p>
+
+                <span style="display:block; border-top: 1px solid #ccc; margin: 2rem auto; max-width: 700px;"></span>
+
+                <h3 style="max-width: 700px; margin: 0 auto 1rem auto;">CLI</h3>
+                
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    Point A in this story is the arrival of the Command Line Interface, the first digital input and output system. To see a list of files you had to type /dir, that's how MS-DOS worked. I managed to encounter it as a child.
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    How could you know the command was /dir? You couldn't. You had to know it. A little over a hundred commands just to use the system. If you didn't know the command, the computer was a useless black box to you.
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    This barrier to entry nearly killed the PC industry in the late eighties. But in the 90s, we see a surge again. What happened?
+                </p>
+
+                <span style="display:block; border-top: 1px solid #ccc; margin: 2rem auto; max-width: 700px;"></span>
+
+                <h3 style="max-width: 700px; margin: 0 auto 1rem auto;">GUI</h3>
+                
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    The Graphical User Interface happened. The WIMP paradigm was established. Windows, Icons, Menus, Pointer. It seems normal now but back then it was a tectonic cognitive shift. You no longer had to recall. Now you just had to recognise.
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    You see an icon and you remember its function. And if you don't know it, the element explains its function by its appearance. This property is called affordance.
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    Look at this transition. Windows 95 was strict. Minimalism. And then came XP. And it looked like a toy. Bright colours, huge buttons, a green hill. Pros scoffed, "it's a Fisher-Price interface!"
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    But why would a serious corporation build a system that looks unserious? The answer lies in fear. 95's minimalism required understanding. XP's style worked as an instruction manual. The shadow creates a Z-axis. The 3D button screamed "Push Me!" Microsoft added this character to lower our stress level in front of a complex machine.
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    The main difference between Mac and Windows was cemented right then. Dock and Start.
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    The WIMP paradigm assumed openness. A large sandbox with almost no restrictions. I remember this with my own experience. As a kid, I bricked my PC a couple of times. Why? I went into the registry and deleted system files. I didn't need a stable kernel. I needed an extra fifty megabytes to install GTA Vice City.
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    This shows how the paradigm treated you, as an engineer. Even if you were just a child. The user was responsible for the care and feeding of the file structure. You had to understand how a .dll differed from a .exe.
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    But there was a worse problem. The mouse.
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    Early on, I felt like a computer literacy teacher. I'd sit with my dad, a sharp engineer who could reverse-engineer mechanical systems in his head, and watch him try to reason through something that felt impossibly abstract. He'd move the mouse on the desk, then look up at the screen, trying to map the physical gesture to the cursor's movement. Your hand moves here, but the action happens there. This is indirect manipulation. A cognitive puzzle where a middleman stood between intent and outcome. It's exactly why Apple refused to add a cursor to the iPad for years. To them it was a step backward.
+                </p>
+
+                <span style="display:block; border-top: 1px solid #ccc; margin: 2rem auto; max-width: 700px;"></span>
+
+                <h3 style="max-width: 700px; margin: 0 auto 1rem auto;">Touch</h3>
+                
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    Touch screens existed before the iPhone, but it was a struggle. Screens were resistive. You had to press. It was a limbo between direct and indirect control.
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    The iPhone revolution was in projected capacitive touch technology. Jobs called the stylus an aesthetic intermediary. His intent was radical. Remove the final barrier. Think about it. We stopped pointing. We started touching. The middleman vanished for the first time.
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    You physically pushed a list and it coasted on inertia. But we got scared of total freedom. So skeuomorphism appeared, wooden shelves, leather notebooks, the Braun calculator. And if you think about it, it's another layer like the mouse, but mental. Logically, we abandoned this layer too. We moved to flat design, although in my opinion, we threw the baby out with the bathwater by destroying references to the real world.
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    We killed visual identity. Interfaces became boring in the 2010s.
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    We thought the future was strictly linear. Just as Victorians drew the future as steam trains, we drew lines in the air dreaming of holograms. But reality took a turn. Generation Z, raised on the intuitive iPhone, is often lost in front of a regular PC.
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    They can't find the file. Why? Because iOS killed the file. We shifted from document-centric to app-centric. A photo no longer lives in a folder. It lives inside the Gallery App. This lowered the barrier to entry, but locked us in a sandbox.
+                </p>
+
+                <span style="display:block; border-top: 1px solid #ccc; margin: 2rem auto; max-width: 700px;"></span>
+
+                <h3 style="max-width: 700px; margin: 0 auto 1rem auto;">The three things we missed</h3>
+                
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    If we take a step back, we'll see 3 factors we missed.
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    First, the notification. Interaction used to be pulled. Now it became push. Monologue turned into dialogue. The interface became a conversational partner.
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    Second, the Indian phenomenon of WhatsApp. A super app that proved everything can be a messenger. While the world suffered from app fatigue, the east folded everything back into a single chat window.
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    Third, the command line never died. It survived in Raycast and Spotlight. Why? Because GUI is slow for a pro. Text remained the fastest way to the goal.
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    Here is the answer. Combine dialogue, the universality of WhatsApp, and the speed of Raycast. Seems like the next step, right? No. There is an elephant in the room.
+                </p>
+
+                <blockquote style="border-left: 4px solid #000; padding-left: 1rem; margin: 1.5rem auto; max-width: 700px; font-style: italic;">
+                    Artificial intelligence.
+                </blockquote>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    Look at the short life span of the prompt engineer profession. It was an attempt to apply past patterns, codes, hacks, to a new environment. We tried to control AI like a command line. The profession died before our eyes. 99% of services are trying to embed AI into existing software.
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    It looks awkward. Why? Because it's a shift in the locus of control.
+                </p>
+
+                <blockquote style="border-left: 4px solid #000; padding-left: 1rem; margin: 1.5rem auto; max-width: 700px; font-style: italic;">
+                    In WIMP, you are in control. The responsibility for the process is yours.<br><br>
+                    In AI, you only provide the intent. You do not control the process.
+                </blockquote>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    This brings us to a realization.
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    LLM is not the next step. It's a new branch. And the graphical user interface is a dead end. It is a dead language like Sanskrit. It is finished. You can no longer invent new words in it.
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    The graphical interface was a logical development for years. We compounded convenience at the cost of freedom. There is no longer a designer to tell you in what order to read the page.
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    We are exiting the information kindergarten where everything was structured and clear.
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    We already see a huge gap in how much value different people get from LLMs, because the system's capability limit now lies exactly where your vocabulary and imagination end. And that is scary.
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    If the result is bad, the responsibility is yours. And that means your general knowledge and how much you read is now a factor directly influencing your work results.
+                </p>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    That is precisely why I filter a massive stream of information weekly, the deepest insights and tools that help formulate thoughts more precisely, and package it into my blogs.
+                </p>
+
+                <span style="display:block; border-top: 1px solid #ccc; margin: 2rem auto; max-width: 700px;"></span>
+
+                <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
+                    Enough of this now. Bye.
+                </p>
+            `;
+            return;
+        }
+
         // Fallback: keep the original static content for other posts
         return;
+
     }
     
     setupEventListeners() {

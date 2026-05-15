@@ -23,6 +23,17 @@ class BlogManager {
     loadSampleData() {
         this.blogs = [
             {
+                id: 13,
+                title: "What is the future of design?",
+                excerpt: "40 years of interface evolution led us back to a blinking cursor. Welcome to the end of the interface era.",
+                content: "Full article content would go here...",
+                category: "design",
+                date: "2026-05-15",
+                readTime: "15 min read",
+                tags: ["design", "AI", "interfaces", "future"],
+                featured: true
+            },
+            {
                 id: 11,
                 title: "Some things I've built don't run on code",
                 excerpt: "a reflection on rhythm, purpose, people, and the energy in the room.",
@@ -59,9 +70,9 @@ class BlogManager {
         
         // Sort blogs by date (newest first)
         this.blogs.sort((a, b) => new Date(b.date) - new Date(a.date));
-        // Show the first three articles on the homepage (keep earlier blogs visible)
-        this.filteredBlogs = this.blogs.slice(0, 3);
-        this.postsPerPage = 3;
+        // Show all four articles on the homepage
+        this.filteredBlogs = this.blogs.slice(0, 4);
+        this.postsPerPage = 4;
     }
     
     // Setup event listeners
@@ -197,6 +208,10 @@ class BlogManager {
         ];
         
         let gradient = gradients[blog.id % gradients.length];
+        // Warm gradient for future of design theme (classic to AI transition)
+        if (String(blog.id) === '13') {
+            gradient = 'linear-gradient(135deg, #B85C1A 0%, #8b5cf6 100%)';
+        }
         // Force turquoise for the second blog card
         if (String(blog.id) === '11') {
             gradient = 'linear-gradient(135deg, #40E0D0 0%, #2bc0a4 100%)';
