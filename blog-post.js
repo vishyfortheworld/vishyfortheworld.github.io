@@ -340,7 +340,7 @@ class BlogPostManager {
                 <span style="display:block; border-top: 1px solid #ccc; margin: 2rem auto; max-width: 700px;"></span>
 
                 <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
-                    Alright. This is MS-DOS, 1981. And this is ChatGPT, 2026. Separating them - 40 years of evolution and trillions of dollars of investment. We invented windows, icons, the (accusatory) cursor. Then we taught phones to feel our fingers. Dreamed of holograms. But still, the future is suspiciously like the fucking past.
+                    Alright. MS-DOS, 1981. ChatGPT, 2026. Separating them? 40 years of evolution and trillions of dollars of investment. We invented windows, icons, the (accusatory) cursor. Then we taught phones to feel our fingers. Dreamed of holograms. But still, the future is suspiciously like the fucking past.
                 </p>
 
                 <p style="line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: auto; font-family: system-ui, sans-serif;">
